@@ -18,17 +18,11 @@ composer require meituan-openapi/meituan-openapi-sdk:dev-master
 ### 基本用法
 
 ```php
-    use MeituanOpenApi\Config\Config;
-    use MeituanOpenApi\Api\ProductService;
-    
-    //实例化一个配置类
-    $config = new Config($this->developerId, $this->businessId, $this->signKey, false);
-    
-    //使用config和token对象，实例化一个服务对象
-    $productService = new ProductService($token, $config);
-    
-    //调用服务方法，获取资源
-    $shop = $productService->queryCateList(12345);
+        // 门店映射
+        $config = new Config($developerId, $businessId, $signKey);
+        $client = new OAuthClient($config);
+        $url = $client->storemap($ePoiId);
+        header('location: ' . $url);
 
 ```
 
