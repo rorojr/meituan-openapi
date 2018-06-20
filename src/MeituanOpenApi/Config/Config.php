@@ -9,27 +9,19 @@ class Config
     private $developer_id;   //	开发者ID
     private $business_id;    //	1: 接入团购&闪惠业务 2: 接入外卖业务
     private $signKey;
-    private $sandbox;
 
     private $request_url;
 
     private $log;
 
     private $default_request_url = "http://api.open.cater.meituan.com/";
-    private $default_sandbox_request_url = "http://api.open.cater.meituan.com/";
 
     // private $default_request_url = "http://waimaiopen.meituan.com";
     // private $default_sandbox_request_url = "http://test.waimaiopen.meituan.com";
 
-    public function __construct($developer_id, $business_id, $sign_key, $sandbox)
+    public function __construct($developer_id, $business_id, $sign_key)
     {
-        if ($sandbox == false) {
-            $this->request_url = $this->default_request_url;
-        } elseif ($sandbox == true) {
-            $this->request_url = $this->default_sandbox_request_url;
-        } else {
-            throw new InvalidArgumentException("the type of sandbox should be a boolean");
-        }
+        $this->request_url = $this->default_request_url;
 
         if (empty($developer_id)) {
             throw new InvalidArgumentException("developer_id is required");
@@ -46,7 +38,6 @@ class Config
         $this->developer_id = $developer_id;
         $this->business_id = $business_id;
         $this->signKey = $sign_key;
-        $this->sandbox = $sandbox;
     }
 
 

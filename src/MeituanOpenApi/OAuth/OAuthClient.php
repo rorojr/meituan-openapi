@@ -79,15 +79,24 @@ class OAuthClient
      * @param $ePoiId
      * @return mixed
      */
-    public function storemap($ePoiId)
+    public function storemap($ePoiId, $ePoiName = '')
     {
         $query = [
             'developerId' => $this->developerId,
             'businessId' => $this->businessId,
             'ePoiId' => $ePoiId,
             'signKey' => $this->signKey,
+            'timestamp' => time()
         ];
-        return $this->request(self::STORE_MAP_API, $query);
+
+        //非必须
+        if (!empty($ePoiName)) {
+            $query['ePoiName'] = $ePoiName;
+        }
+
+        $query['sign'] = $this->signature($query);
+        $queryStr = http_build_query($query);
+        return self::STORE_MAP_API . '?' . $queryStr;
     }
 
 
