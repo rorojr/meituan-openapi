@@ -1,7 +1,7 @@
 {
   "name": "meituan-openapi/meituan-openapi-sdk",
-  "description": "meituan-openapi-sdk",
-  "license": "master",
+  "description": "meituan-openapi-php-sdk",
+  "license": "MIT",
   "keywords": [
     "meituan"
   ],
