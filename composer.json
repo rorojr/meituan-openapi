@@ -1,0 +1,23 @@
+{
+  "name": "meituan-openapi/meituan-openapi-sdk",
+  "description": "meituan-openapi-sdk",
+  "license": "master",
+  "keywords": [
+    "meituan"
+  ],
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "winky",
+      "email": "winky616@gmail.com"
+    }
+  ],
+  "require": {
+      "php": ">=5.4.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "MeituanOpenApi\\": "src/MeituanOpenApi"
+    }
+  }
+}
